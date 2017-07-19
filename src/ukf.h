@@ -37,6 +37,9 @@ public:
   ///* Laser measurement covariance matrix
   MatrixXd R_laser_;
   
+  ///* Laser measurement matrix
+  MatrixXd H_laser_;
+  
   ///* time when the state is true, in us
   long long time_us_;
 
@@ -78,6 +81,9 @@ public:
   
   ///* laser measurement dimension, laser can measure p_x, p_y
   int n_z_l_;
+  
+  ///* Number of generated sigma points
+  int n_sig_pts_;
   
   ///* Chi squared distribution threshold
   double Chi_;
