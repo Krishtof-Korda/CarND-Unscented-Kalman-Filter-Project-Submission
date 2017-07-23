@@ -86,10 +86,8 @@ UKF::UKF() {
   
   ///* Weights of sigma points
   weights_ = VectorXd (n_sig_pts_);
+  weights_.fill(.5/(lambda_ + n_aug_));
   weights_(0) = lambda_/(lambda_ + n_aug_);
-  for (int i = 1; i<n_sig_pts_; i++) {
-    weights_(i) = .5/(lambda_ + n_aug_);
-  }
   
   // set Radar measurement covariance matrix
   R_radar_ = MatrixXd(n_z_r_, n_z_r_);
